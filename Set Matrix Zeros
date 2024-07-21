@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        vector<pair<int,int>> vect;
+        for(int i=0;i<matrix.size();i++){
+            for(int j=0;j<matrix[0].size();j++){
+                if(matrix[i][j]==0){
+                    vect.push_back(make_pair(i,j));
+                }
+            }
+        }
+        int m,n;
+        for(const auto& mt : vect){
+            m = mt.first;
+            n = mt.second;
+            for(int i=0;i<matrix[0].size();i++){
+                matrix[m][i] =0;
+            }
+            for(int i=0;i<matrix.size();i++){
+                matrix[i][n] =0;
+            }
+        }
+    }
+};
