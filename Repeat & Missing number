@@ -1,0 +1,23 @@
+vector<int> Solution::repeatedNumber(const vector<int> &A) {
+
+        int n;
+        n = A.size();
+        int sum=0,duplicate,Req_sum,needed_no;
+        sort(A.begin(),A.end());
+        for(int i=0;i<n;i++){
+            sum=A[i]+sum;
+            if(A[i]==A[i+1]){
+                duplicate = A[i];
+            }
+        }
+        Req_sum=((n)*(n+1))/2;
+        needed_no=Req_sum-sum + duplicate;
+        vector<int> ans;
+        ans.push_back(duplicate);
+        ans.push_back(needed_no);
+        return ans;  
+
+
+
+
+}
