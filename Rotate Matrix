@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        // Brute force
+        // int n = matrix.size()-1;
+        // vector<vector<int>> dummy(n+1,vector<int>(n+1,0));
+        
+        // for(int i=0;i<=n;i++){
+        //     for(int j=0;j<=n;j++){
+        //         dummy[i][j] = matrix[n-j][i];
+        //     }
+        // }
+        // matrix = dummy;
+        int n=matrix.size()-1;
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<i;j++){
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+        for(int i=0;i<=n;i++){
+            reverse(matrix[i].begin(),matrix[i].end());
+        }
+    }
+};
