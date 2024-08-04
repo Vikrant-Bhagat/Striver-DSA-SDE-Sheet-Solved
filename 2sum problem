@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+       
+    //   for(int i=0;i<nums.size()-1;i++){
+    //     for(int j=i+1;j<nums.size();j++){
+    //         if(nums[i]+nums[j]==target){
+    //             return {i,j};
+    //         }
+    //     }
+    //   }
+    //   return {0};
+        // unordered_map<int,int> umap;
+        // for(int i=0;i<nums.size();i++){
+        //     umap[nums[i]]=i;
+        // }
+        // int first,new_target,first_index,second,second_index,flag=0;
+        // for(int i=0;i<nums.size();i++){
+        //     first = nums[i];
+        //     first_index = i;
+        //     new_target=target-first;
+        //     if(umap.find(new_target)!=umap.end() && umap[new_target]!=first_index){
+        //         return {first_index,umap[new_target]};
+        //     }
+        //     // for(auto& j : umap){
+        //     //     if(j.first!=i && j.second+first==target){
+        //     //         second_index = j.first;
+        //     //         flag=1;
+        //     //         break;        
+        //     //     }
+        //     // }
+        //     // if(flag==1){
+        //     //     break;
+        //     // }
+        // }
+        // return {first_index,second_index};
+    }
+};
