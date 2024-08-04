@@ -1,0 +1,48 @@
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        //Brute force soln
+        // int m = matrix.size();
+        // int n = matrix[0].size();
+        // vector<int> vect(m*n,0);
+        // for(int i=0;i<m;i++){
+        //     for(int j=0;j<n;j++){
+        //         vect[n*i+j] = matrix[i][j];
+        //     }
+        // }
+        // int start = 0;
+        // int end = m*n-1;
+        // while(start<=end){
+        //     int mid = start+(end-start)/2;
+        //     if(vect[mid]==target){
+        //         return true;
+        //     }
+        //     else if(vect[mid]<target){
+        //         start++;
+        //     }
+        //     else{
+        //         end--;
+        //     }
+        // }
+        // return false;
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int start =0;
+        int end = m*n-1;
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            int row = mid/n;
+            int col = mid%n;
+            if(matrix[row][col]==target){
+                return true;
+            }
+            else if(matrix[row][col]<target){
+                start=mid+1;
+            }
+            else{
+                end=mid-1;
+            }
+        }
+        return false;
+    }
+};
