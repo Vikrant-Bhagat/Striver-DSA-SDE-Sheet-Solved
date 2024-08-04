@@ -1,0 +1,29 @@
+class Solution {
+public:
+    // void solve(int i,int j,int m,int n,int& count){
+    //     if(i==m-1 && j==n-1){
+    //         count++;
+    //         return;
+    //     }
+    //     if(i>m-1 || j>n-1){
+    //         return;
+    //     }
+
+    //     //moves down
+    //     solve(i+1,j,m,n,count);
+    //     //moves right
+    //     solve(i,j+1,m,n,count);
+    // }
+    int uniquePaths(int m, int n) {
+        // int count=0;
+        // solve(0,0,m,n,count);   
+        // return count;
+        int N = n + m - 2;
+            int r = m - 1; 
+            double res = 1;
+            
+            for (int i = 1; i <= r; i++)
+                res = res * (N - r + i) / i;
+            return (int)res;
+    }
+};
