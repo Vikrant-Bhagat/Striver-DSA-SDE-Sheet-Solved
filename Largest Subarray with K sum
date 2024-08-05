@@ -1,0 +1,76 @@
+class Solution {
+public:
+    // bool linear_search(int y,vector<int> nums){
+    //     for(int j=0;j<nums.size();j++){
+    //         if(nums[j]==y){
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    int longestConsecutive(vector<int>& nums) {
+        int n = nums.size();
+    if (n == 0) return 0;
+
+    int longest = 1;
+    unordered_set<int> st;
+    //put all the array elements into set:
+    for (int i = 0; i < n; i++) {
+        st.insert(nums[i]);
+    }
+
+    //Find the longest sequence:
+    for (auto it : st) {
+        //if 'it' is a starting number:
+        if (st.find(it - 1) == st.end()) {
+            //find consecutive numbers:
+            int cnt = 1;
+            int x = it;
+            while (st.find(x + 1) != st.end()) {
+                x = x + 1;
+                cnt = cnt + 1;
+            }
+            longest = max(longest, cnt);
+        }
+    }
+    return longest;
+    //      int n = nums.size();
+    //     if (n == 0) return 0;
+
+    //     //sort the array:
+    //     sort(nums.begin(), nums.end());
+    //     int lastSmaller = INT_MIN;
+    //     int cnt = 0;
+    //     int longest = 1;
+
+    //     //find longest sequence:
+    //     for (int i = 0; i < n; i++) {
+    //         if (nums[i] - 1 == lastSmaller) {
+    //             //a[i] is the next element of the
+    //             //current sequence.
+    //             cnt += 1;
+    //             lastSmaller = nums[i];
+    //         }
+    //         else if (nums[i] != lastSmaller) {
+    //             cnt = 1;
+    //             lastSmaller = nums[i];
+    //         }
+    //         longest = max(longest, cnt);
+    //     }
+    // return longest;
+        // int count=1,x,longest=1;
+        // if(nums.size()==0){
+        //     return 0;
+        // }
+        // for(int i=0;i<nums.size();i++){
+        //     x=nums[i];
+        //     while(linear_search(x+1,nums)==true){
+        //         x++;
+        //         count++;
+        //     }
+        //     longest=max(longest,count);
+        //     count=1;
+        // }
+        // return longest;
+    }
+};
