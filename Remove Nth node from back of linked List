@@ -1,0 +1,67 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        // Create two pointers, fastp and slowp
+        ListNode* fastp = head;
+        ListNode* slowp = head;
+
+        // Move the fastp pointer N nodes ahead
+        for (int i = 0; i < n; i++)
+            fastp = fastp->next;
+
+        // If fastp becomes NULL,
+        // the Nth node from the end is the head
+        if (fastp == NULL)
+            return head->next;
+
+        // Move both pointers until fastp reaches the end
+        while (fastp->next != NULL) {
+            fastp = fastp->next;
+            slowp = slowp->next;
+        }
+
+        // Delete the Nth node from the end
+        ListNode* delNode = slowp->next;
+        slowp->next = slowp->next->next;
+        delete delNode;
+        return head;
+        // int size=0;
+        // ListNode* temp = head;
+        // while(temp!=NULL){
+        //     size++;
+        //     temp=temp->next;
+        // }
+        // temp=head;
+        // int num = size-n+1;
+        // //if num is 1
+        // //if num is size
+        // //if num is in between
+        // if(num==1){
+        //     head=head->next;
+        //     temp->next=NULL;
+        // }
+        // else if(num==size){
+        //     for(int i=1;i<num-1;i++){
+        //         temp=temp->next;
+        //     }
+        //     temp->next=NULL;
+        // }
+        // else{
+        //     for(int i=1;i<num-1;i++){
+        //         temp=temp->next;
+        //     }
+        //     temp->next=temp->next->next;
+        // }
+        // return head;
+    }
+};
